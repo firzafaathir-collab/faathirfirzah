@@ -1,141 +1,192 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata Diri - Faathir</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bukber Dentignite24</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
 
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #5a0f1c, #800020, #3b000f);
-            background-size: 300% 300%;
-            animation: gradientMove 8s ease infinite;
-        }
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#f5efe6,#ffffff);
+text-align:center;
+color:#5a4633;
+}
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+/* LOBBY */
+#lobby{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
 
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            width: 380px;
-            border-radius: 20px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            animation: fadeIn 1.5s ease;
-        }
+.lobby-img{
+width:220px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+margin-bottom:20px;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+button{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#c8a97e;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
 
-        .foto img {
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #ffccd5;
-            margin-bottom: 20px;
-            transition: 0.4s;
-        }
+/* UNDANGAN */
+#undangan{
+display:none;
+padding:40px;
+}
 
-        .foto img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #ffccd5;
-        }
+.card{
+max-width:650px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
 
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            color: #ffd6db;
-        }
+.dress{
+background:#f5efe6;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+}
 
-        .nama {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
+.note{
+background:#fff6ec;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+}
 
-        .deskripsi {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #f8d7da;
-        }
+/* BULAN */
+.moon{
+position:fixed;
+top:40px;
+right:40px;
+width:80px;
+height:80px;
+background:#fff6d5;
+border-radius:50%;
+box-shadow:-15px 0 0 0 #f5efe6;
+}
 
-        footer {
-            font-size: 13px;
-            color: #ffd6db;
-        }
+/* BINTANG */
+.star{
+position:fixed;
+width:4px;
+height:4px;
+background:#e6d5c3;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
 
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ffd6db;
-            margin: 15px 0;
-            opacity: 0.5;
-        }
+@keyframes twinkle{
+from{opacity:0.3;}
+to{opacity:1;}
+}
 
-        footer strong {
-            color: #ffffff;
-        }
+.map{
+margin-top:20px;
+border-radius:15px;
+overflow:hidden;
+}
 
-        /* Responsive */
-        @media (max-width: 450px) {
-            .card {
-                width: 90%;
-                padding: 25px;
-            }
-        }
-
-    </style>
+</style>
 </head>
+
 <body>
 
-    <div class="card">
-        <div class="foto">
-            <img src="latar biru.jpeg" alt="Foto Profil">
-        </div>
+<!-- BACKSOUND -->
+<audio id="musik" autoplay loop muted>
+<source src="ssstik.io_1772762086641.mp3">
+</audio>
 
-        <h1>BIODATA DIRI</h1>
+<div class="moon"></div>
 
-        <p class="nama">Muhammad Faathir Firzah</p>
+<div class="star" style="top:80px;left:20%;"></div>
+<div class="star" style="top:150px;left:70%;"></div>
+<div class="star" style="top:60px;left:50%;"></div>
 
-        <p class="deskripsi">
-            Nama saya Muhammad Faathir Firzah, sering dipanggil Fathir.
-            Saya berasal dari Kabupaten Tolitoli, Sulawesi Tengah.
-            Saya berusia 19 tahun dan saat ini berkuliah di Universitas Hasanuddin
-            jurusan Terapi Gigi dan Mulut angkatan 2024.
-        </p>
+<!-- LOBBY -->
+<section id="lobby">
 
-        <footer>
-            <hr>
-            <p><strong>Alamat:</strong> Jl. Perjuangan, Tamalanrea, Kota Makassar, Sulawesi Selatan</p>
-        </footer>
-    </div>
+<img src="tgm.jpeg" class="lobby-img">
+
+<h2>Undangan Bukber</h2>
+<h1>Dentignite24</h1>
+
+<p>Klik tombol di bawah untuk membuka undangan</p>
+
+<button onclick="bukaUndangan()">Buka Undangan</button>
+
+</section>
+
+<!-- UNDANGAN -->
+<section id="undangan">
+
+<div class="card">
+
+<h2>🌙 MARHABAN YA RAMADHAN 🌙</h2>
+<h1>Buka Puasa Bersama</h1>
+<h2>Dentignite24</h2>
+
+<p>📅 <b>Jumat, 6 Maret 2026</b></p>
+<p>⏰ <b>17.00 WITA</b></p>
+<p>📍 <b>Pondok Bakul Sunda, Mall Panakkukang</b></p>
+
+<div class="dress">
+<h3>Dresscode</h3>
+<p>Girls : Putih + Coklat</p>
+<p>Boys : Kemeja Putih</p>
+</div>
+
+<div class="note">
+<b>❗ Catatan Penting ❗</b><br><br>
+
+• Tolong datang tepat waktu<br>
+• Yang bilang “lihat nanti” biasanya tidak muncul<br>
+• Yang tidak datang = siap-siap ditag di grup 1 bulan penuh
+</div>
+
+<div class="map">
+<iframe 
+src="https://www.google.com/maps?q=mall+panakkukang+makassar&output=embed"
+width="100%" height="250"></iframe>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function bukaUndangan(){
+
+document.getElementById("lobby").style.display="none";
+document.getElementById("undangan").style.display="block";
+
+/* Aktifkan suara */
+var musik=document.getElementById("musik");
+musik.muted=false;
+musik.play();
+
+}
+
+</script>
 
 </body>
 </html>
